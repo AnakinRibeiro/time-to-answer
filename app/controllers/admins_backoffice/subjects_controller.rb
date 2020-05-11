@@ -2,7 +2,7 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
   before_action :set_subject, only: [:edit, :update, :destroy]
 
   def index
-    @subjects = Subject.all.page(params[:page])
+    @subjects = Subject.all.order(:description).page(params[:page])
   end
 
   def new
@@ -45,5 +45,5 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
 
   def set_subject
     @subject = Subject.find(params[:id])
-  ends
+  end
 end
