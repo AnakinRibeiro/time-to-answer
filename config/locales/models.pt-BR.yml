@@ -3,7 +3,7 @@
     models:
       admin: 
         one: Administrador
-        other: Adminisradores
+        other: Administradores
       user:
         one: Usuário
         other: Usuários
