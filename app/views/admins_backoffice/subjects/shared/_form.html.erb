@@ -4,17 +4,17 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
-<!-- /.row -->
+
 <div class="row">
 
     <% if @subject.errors.any? %>
         <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-
+            
             <ul>
-                <% @subject.errors.full_messages.each do |message| %>
-                    <li> <%= message %> </li>
-                <% end %>
+              <% @subject.errors.full_messages.each do |message| %>
+                <li> <%= message %> </li>
+              <% end %>
             </ul>
         </div>
     <% end %>
@@ -22,18 +22,20 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <%= "#{action_message} Assunto/Área" %>
+                <%= @subject.model_name.human %>
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-6">
-                        <%= form_with(model: [ :admins_backoffice, @subject ], local: true) do |form| %>
+                       <%= form_with(model: [ :admins_backoffice, @subject ], local: true) do |form| %>
+                        
                             <div class="form-group">
                                 <%= form.label :description %>
                                 <%= form.text_field :description, 
-                                    class:"form-control", 
-                                    placeholder: t('placeholder.subject_description')  %>
+                                         class:"form-control", 
+                                         placeholder: t('placeholder.subject_description')  %>
                             </div>
+
                             <button type="submit" class="btn btn-default">
                               <%= t('button.save') %>
                             </button>

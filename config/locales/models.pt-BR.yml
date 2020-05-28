@@ -1,7 +1,7 @@
 'pt-BR':
   activerecord:
     models:
-      admin: 
+      admin:
         one: Administrador
         other: Administradores
       user:
@@ -18,7 +18,7 @@
         id: Código
         email: Email
         password: Senha
-        password_confirmation: Confirmação de Senha
+        password_confirmation: Confirmação da Senha
         created_at: Criado em
         updated_at: Atualizado em
       user:
@@ -27,7 +27,7 @@
         first_name: Nome
         last_name: Sobrenome
         password: Senha
-        password_confirmation: Confirmação de Senha
+        password_confirmation: Confirmação da Senha
         created_at: Criado em
         updated_at: Atualizado em
       user_profile:

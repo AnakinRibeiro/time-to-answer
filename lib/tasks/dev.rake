@@ -60,21 +60,14 @@ namespace :dev do
 
   desc "Adiciona perguntas e respostas"
   task add_answers_and_questions: :environment do
-    # Pega todos os assuntos
     Subject.all.each do |subject|
-      # Gera de 5 a 10 perguntas para cada assunto 
       rand(5..10).times do |i|
-        # Recebe a pergunta criada 
         params = create_question_params(subject)
-        # Recebe o array de respostas contido dentro dos parametros
         answers_array = params[:question][:answers_attributes]
 
-        # Adiciona as respostas no array
         add_answers(answers_array)
-        # Seleciona uma resposta para ser a correta 
         elect_true_answer(answers_array)
-        
-        # Cria as perguntas e respostas de acordo com os parametros
+      
         Question.create!(params[:question])
       end
     end
@@ -89,9 +82,8 @@ namespace :dev do
     end
   end
 
-
   private
-  # Cria um pergunta de acordo com os parametros 
+
   def create_question_params(subject = Subject.all.sample)
     { question: {
           description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
@@ -101,12 +93,10 @@ namespace :dev do
     }
   end
 
-  # Cria a resposta como falsa por padrão
   def create_answer_params(correct = false)
     { description: Faker::Lorem.sentence, correct: correct }
   end
 
-  # Adiciona de 2 a 5 respostas ao array de respostas 
   def add_answers(answers_array = [])
     rand(2..5).times do |j|
       answers_array.push(
@@ -115,7 +105,6 @@ namespace :dev do
     end
   end
 
-  # Seleciona uma resposta para ser a verdadeira
   def elect_true_answer(answers_array = [])
     selected_index = rand(answers_array.size)
     answers_array[selected_index] = create_answer_params(true)

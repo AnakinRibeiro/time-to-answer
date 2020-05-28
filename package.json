@@ -1,5 +1,5 @@
 {
-  "name": "time-to-answer",
+  "name": "time_to_answer",
   "private": true,
   "dependencies": {
     "bootstrap": "3.3.7",
@@ -14,7 +14,5 @@
   },
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/AnakinRibeiro/time-to-answer.git",
-  "author": "AnakinRibeiro <eduardor.contato@outlook.com>",
   "license": "MIT"
 }

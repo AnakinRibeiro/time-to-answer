@@ -1,5 +1,6 @@
 require_relative 'boot'
 
+# require 'rails/all'
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
@@ -27,6 +28,10 @@ module TimeToAnswer
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Allow Web Console from Vagrant
+    config.web_console.whitelisted_ips = '10.0.2.2'
   end
 end
